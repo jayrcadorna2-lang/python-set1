@@ -7,7 +7,7 @@
 students = []
 
 
-# 1. ADD STUDENT
+
 def add_student():
     print("\n=== ADD STUDENT ===")
 
@@ -26,7 +26,7 @@ def add_student():
         print("All fields are required!")
         return
 
-    # Prevent duplicate names (case-insensitive)
+  
     for student in students:
         if student["name"].lower() == name.lower():
             print("Student name already exists!")
@@ -42,7 +42,7 @@ def add_student():
     print("\nStudent added successfully!")
 
 
-# 2. REMOVE STUDENT
+
 def remove_student():
     print("\n=== REMOVE STUDENT ===")
 
@@ -57,7 +57,7 @@ def remove_student():
     print("Student not found!")
 
 
-# 3. SEARCH STUDENT
+
 def search_student():
     print("\n=== SEARCH STUDENT ===")
 
@@ -65,7 +65,7 @@ def search_student():
 
     found = False
 
-    # Search using partial name
+  
     for student in students:
         if search_name in student["name"].lower():
             print("\n=== STUDENT FOUND ===")
@@ -79,7 +79,7 @@ def search_student():
         print("Student not found!")
 
 
-# 4. DISPLAY ALL STUDENTS
+
 def display_students():
     print("\n=== ALL STUDENT RECORDS ===")
 
@@ -87,7 +87,7 @@ def display_students():
         print("No student records available.")
         return
 
-    # Arrange students alphabetically by name
+  
     sorted_students = sorted(
         students,
         key=lambda student: student["name"].lower()
@@ -99,7 +99,7 @@ def display_students():
 
     print("-" * 70)
 
-    # Display students with numbering
+  
     for number, student in enumerate(sorted_students, start=1):
         print("{:<5} {:<15} {:<20} {:<10} {:<15}".format(
             number,
@@ -113,7 +113,7 @@ def display_students():
     print("Total Students:", len(students))
 
 
-# 5. MAIN MENU
+
 def main():
     while True:
         print("\n=== STUDENT RECORD MANAGER ===")
