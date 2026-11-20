@@ -1,3 +1,4 @@
+
 # Name: CADORNA, JAY-R RAMOS
 # Section: IV-BSIT __A
 # Activity: P1 - Student Grade Calculator
@@ -6,6 +7,7 @@
 students = []
 
 
+# 1. ADD STUDENT
 def add_student():
     print("\n=== ADD STUDENT ===")
 
@@ -24,6 +26,12 @@ def add_student():
         print("All fields are required!")
         return
 
+    # Prevent duplicate names (case-insensitive)
+    for student in students:
+        if student["name"].lower() == name.lower():
+            print("Student name already exists!")
+            return
+
     students.append({
         "id": student_id,
         "name": name,
@@ -33,7 +41,8 @@ def add_student():
 
     print("\nStudent added successfully!")
 
-T
+
+# 2. REMOVE STUDENT
 def remove_student():
     print("\n=== REMOVE STUDENT ===")
 
@@ -47,22 +56,30 @@ def remove_student():
 
     print("Student not found!")
 
+
+# 3. SEARCH STUDENT
 def search_student():
     print("\n=== SEARCH STUDENT ===")
 
-    student_id = input("Enter Student ID to search: ").strip()
+    search_name = input("Enter Student Name to search: ").strip().lower()
 
+    found = False
+
+    # Search using partial name
     for student in students:
-        if student["id"] == student_id:
+        if search_name in student["name"].lower():
             print("\n=== STUDENT FOUND ===")
             print("Student ID:", student["id"])
             print("Name:", student["name"])
             print("Age:", student["age"])
             print("Course:", student["course"])
-            return
+            found = True
 
-    print("Student not found!")
+    if not found:
+        print("Student not found!")
 
+
+# 4. DISPLAY ALL STUDENTS
 def display_students():
     print("\n=== ALL STUDENT RECORDS ===")
 
@@ -70,23 +87,33 @@ def display_students():
         print("No student records available.")
         return
 
-    print("\n{:<15} {:<20} {:<10} {:<15}".format(
-        "STUDENT ID", "NAME", "AGE", "COURSE"
+    # Arrange students alphabetically by name
+    sorted_students = sorted(
+        students,
+        key=lambda student: student["name"].lower()
+    )
+
+    print("\n{:<5} {:<15} {:<20} {:<10} {:<15}".format(
+        "NO.", "STUDENT ID", "NAME", "AGE", "COURSE"
     ))
 
-    print("-" * 65)
+    print("-" * 70)
 
-    for student in students:
-        print("{:<15} {:<20} {:<10} {:<15}".format(
+    # Display students with numbering
+    for number, student in enumerate(sorted_students, start=1):
+        print("{:<5} {:<15} {:<20} {:<10} {:<15}".format(
+            number,
             student["id"],
             student["name"],
             student["age"],
             student["course"]
         ))
 
-    print("-" * 65)
+    print("-" * 70)
     print("Total Students:", len(students))
 
+
+# 5. MAIN MENU
 def main():
     while True:
         print("\n=== STUDENT RECORD MANAGER ===")
@@ -119,5 +146,13 @@ def main():
             print("\nInvalid menu selection!")
             print("Please choose from 1 to 5.")
 
+
 if __name__ == "__main__":
     main()
+
+
+# COMMENTS:
+# 1. Duplicate names are prevented using lower() to ignore capitalization.
+# 2. Students are displayed alphabetically using sorted().
+# 3. enumerate() is used to number each student starting from 1.
+# 4. Partial name searching is done using the 'in' operator.
