@@ -1,3 +1,8 @@
+# Name: CADORNA, JAY-R RAMOS
+# Section: IV-BSIT __A
+# Activity: P1 - Student Grade Calculator
+# Date: 2026-11-20
+
 def divide_numbers():
     try:
         first = float(input("First number: "))

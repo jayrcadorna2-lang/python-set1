@@ -1,14 +1,16 @@
+# Name: CADORNA, JAY-R RAMOS
+# Section: IV-BSIT __A
+# Activity: P1 - Student Grade Calculator
+# Date: 2026-11-20
 
 students = []
 
 
-# 1. ADD STUDENT
 def add_student():
     print("\n=== ADD STUDENT ===")
 
     student_id = input("Enter Student ID: ").strip()
 
-    # Check if Student ID already exists
     for student in students:
         if student["id"] == student_id:
             print("Student ID already exists!")
@@ -31,8 +33,7 @@ def add_student():
 
     print("\nStudent added successfully!")
 
-
-# 2. REMOVE STUDENT
+T
 def remove_student():
     print("\n=== REMOVE STUDENT ===")
 
@@ -46,8 +47,6 @@ def remove_student():
 
     print("Student not found!")
 
-
-# 3. SEARCH STUDENT
 def search_student():
     print("\n=== SEARCH STUDENT ===")
 
@@ -64,10 +63,6 @@ def search_student():
 
     print("Student not found!")
 
-
-# 4. DISPLAY ALL STUDENTS
-
-# 4. DISPLAY ALL STUDENTS
 def display_students():
     print("\n=== ALL STUDENT RECORDS ===")
 
@@ -92,8 +87,6 @@ def display_students():
     print("-" * 65)
     print("Total Students:", len(students))
 
-
-# 5. MAIN MENU
 def main():
     while True:
         print("\n=== STUDENT RECORD MANAGER ===")
@@ -126,7 +119,5 @@ def main():
             print("\nInvalid menu selection!")
             print("Please choose from 1 to 5.")
 
-
-# RUN PROGRAM
 if __name__ == "__main__":
     main()

@@ -1,3 +1,8 @@
+# Name: CADORNA, JAY-R RAMOS
+# Section: IV-BSIT __A
+# Activity: P1 - Student Grade Calculator
+# Date: 2026-11-20
+
 import student_utils
 from student_utils import calculate_average
 from datetime import datetime
